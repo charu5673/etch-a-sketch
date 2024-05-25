@@ -9,16 +9,20 @@
     flex-direction: column;
 }
 .outer{
-    height: 40px;
-    width: 640px;
     display: flex;
+    flex:1;
 }
 .inner{
+    flex:1;
     display: inline;
-    border: 1px solid black;
-    height: 40px;
-    width: 40px;
+    border: 1px solid gray;
 }
 .inner:hover{
     background-color: gray;
+}
+.buttons{
+    display: flex;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
 }
