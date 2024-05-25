@@ -2,15 +2,12 @@ let body=document.querySelector("body");
 let cont = document.querySelector("#container");
 let rb=document.querySelector("#rain");
 let pb=document.querySelector("#prog");
-let op=1;
-let pc=0;
 let rre=0;
 let rgr=0;
 let rbl=0;
 n=16;
 generate(n);
 let rf=false;
-let pf=false;
 function generate(n)
 {
 let i,j;
@@ -22,6 +19,7 @@ for(i=0;i<n;i++)
             {
                 let di=document.createElement("div");
                 di.classList.add("inner");
+                di.style.opacity=0;
                 di.addEventListener("mouseover", function(e){
                     eventSet(e);
                 });
@@ -47,8 +45,6 @@ function change()
 }
 function reset()
 {
-    if(pf)
-        pc=0;
     cont.innerHTML="";
     generate(n);
 }
@@ -65,18 +61,6 @@ function rain()
     rbl=0;
     }
 }
-function prog()
-{
-    pf=!pf;
-    if(pf)
-        pb.textContent="Disable progressive mode";
-    else
-    {
-        pc=0;
-        op=1;
-    pb.textContent="Enable progressive mode";
-    }
-}
 function eventSet(e)
 {
                 if(rf)
@@ -85,20 +69,7 @@ function eventSet(e)
                         rgr=Math.floor(Math.random()*256);
                         rbl=Math.floor(Math.random()*256);
                     }
-                if(pf)
-                    {
-                        if(pc>=10)
-                            op=1;
-                        else
-                        {
-                            op=pc/10;
-                            pc++;
-                        }
-                    }
                 e.target.style.backgroundColor="rgb("+rre+","+rgr+","+rbl+")";
-                e.target.style.opacity=op;
+                if(e.target.style.opacity<1)
+                    e.target.style.opacity=e.target.style.opacity-(-0.1);
 }
-body.addEventListener("mouseover",function(e){
-    if(e.target.id==="body")
-    pc=0;
-});

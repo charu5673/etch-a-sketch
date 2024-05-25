@@ -15,14 +15,16 @@
 .inner{
     flex:1;
     display: inline;
-    border: 1px solid gray;
-}
-.inner:hover{
-    background-color: gray;
+    border: 1px solid black;
 }
 .buttons{
     display: flex;
     gap:10px;
     justify-content: center;
     align-items: center;
+}
+.footer{
+    display:flex;
+    margin: 20px;
+    justify-content:center;
 }
