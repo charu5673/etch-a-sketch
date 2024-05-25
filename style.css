@@ -1,0 +1,24 @@
+#container{
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 50px;
+    background-color: white;
+    height: 640px;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+}
+.outer{
+    height: 40px;
+    width: 640px;
+    display: flex;
+}
+.inner{
+    display: inline;
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+}
+.inner:hover{
+    background-color: gray;
+}
